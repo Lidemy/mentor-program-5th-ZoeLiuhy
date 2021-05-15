@@ -16,9 +16,9 @@ rl.on('close', () => {
 })
 
 function solve(lines) {
-  const n = lines[0]
-  let s = ''
-  for (let i = 0; i < n; i++) {
-    console.log(s += '*')
+  const number = lines[0]
+  let stars = ''
+  for (let i = 0; i < number; i++) {
+    console.log(stars += '*')
   }
 }
