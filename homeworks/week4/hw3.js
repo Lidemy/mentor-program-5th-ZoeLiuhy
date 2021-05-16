@@ -23,7 +23,7 @@ function main() {
       return
     }
     const countryInformation = webData[0]
-    if (response.statusCode === 404) {
+    if (response.statusCode >= 400) {
       console.log('找不到國家資訊')
       return
     }
