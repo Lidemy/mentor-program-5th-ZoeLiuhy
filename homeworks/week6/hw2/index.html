@@ -1,0 +1,79 @@
+<!DOCTYPE HTML> 
+<html>
+ <head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Form</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+ </head>
+ <body>
+  <div class="wrapper">
+    <form>
+      <div class="form__box">
+        <div class="banner"></div>
+        <div class="form__content">
+          <h1>新拖延運動報名表單</h1>
+          <div class="event__information">
+            活動日期：2020/12/10 ~ 2020/12/11
+            <br>
+            活動地點：台北市大安區新生南路二段1號
+          </div>
+          <div class="required"> * 必填</div>
+          <div class="question">
+            <div>
+              <div class="question__word">暱稱</div>
+              <div class="required__mark">*</div>
+            </div>
+          <input type="text" placeholder="您的回答" />
+          </div> 
+          <div class="question">
+            <div>
+              <div class="question__word">電子郵件</div>
+              <div class="required__mark">*</div>
+            </div>
+          <input type="email" placeholder="您的電子郵件" />
+          </div>
+          <div class="question">
+            <div>
+              <div class="question__word">手機號碼</div>
+              <div class="required__mark">*</div>
+            </div>
+          <input type="mobile" placeholder="您的手機號碼">
+          </div>
+          <div class="question">
+            <div>
+              <div class="question__word">報名類型</div>
+              <div class="required__mark">*</div>
+            </div>
+            <input type="radio" name="type" id="躺在床上用想像力實作" />
+            <label for="躺在床上用想像力實作">躺在床上用想像力實作</label>
+            <br>
+            <input type="radio" name="type" id="趴在地上滑手機找現成的" />
+            <label for="趴在地上滑手機找現成的">趴在地上滑手機找現成的</label>
+          </div>
+          <div class="question">
+            <div>
+              <div class="question__word">怎麼知道這個活動的?</div>
+              <div class="required__mark">*</div>
+            </div>
+          <input type="text" placeholder="您的回答">
+          </div>
+          <div class="question">
+            <div>
+              <div class="question__word">其他</div>
+              <div class="question__description">對活動的一些建議</div>
+            </div>
+          <input type="text" placeholder="您的回答">
+          </div>
+          <div class="submit__button">提交</div>
+          <div class="warning">請勿透過表單送出您的密碼。</div>
+        </div> 
+      </div>
+    </form>
+  </div>
+  <footer>
+  © 2020 © Copyright. All rights Reserved.
+  </footer>
+ </body>
+</html>
