@@ -17,17 +17,17 @@ rl.on('close', () => {
 
 function solve(lines) {
   const temp = lines[0].split(' ')
-  const a = Number(temp[0])
-  const b = Number(temp[1])
-  for (let i = a; i <= b; i++) {
-    if (isN(i)) {
+  const firstNumber = Number(temp[0])
+  const secondNumber = Number(temp[1])
+  for (let i = firstNumber; i <= secondNumber; i++) {
+    if (isNarcissistic(i)) {
       console.log(i)
     }
   }
 }
 
 // 回傳數字幾位數(除10除幾次就是幾位數)
-function count(n) {
+function countDigits(n) {
   if (n === 0) return 1
   let result = 0
   while (n !== 0) {
@@ -38,9 +38,9 @@ function count(n) {
 }
 
 // 對10取餘數
-function isN(n) {
+function isNarcissistic(n) {
   let k = n
-  const digits = count(k)
+  const digits = countDigits(k)
   let sum = 0
   while (k !== 0) {
     const remainder = k % 10
