@@ -11,7 +11,7 @@
   padding: 0px 20px;
 }
 
-.Just-A-Bite {
+.logo {
   font-family: Questrial;
   font-size: 36px;
   color: #489846;
@@ -72,8 +72,7 @@
 }
 
 .banner > h1 {
-  display: inline-block;
-  position: relative;
+  position: absolute;
   margin: 0;
   color: white;
   z-index: 2;
@@ -146,7 +145,7 @@
   border: 1px solid #c7e5ec;
   border-radius: 5px;
   box-shadow: -1.4px -1.4px 4px 0 #d8eaef;
-  padding: 40px 20px 60px 20px;
+  padding: 35px 20px 60px 20px;
   width: 375px;
   position: relative;
 }
@@ -157,23 +156,26 @@
 
 .comment__profile {
   position: absolute;
-  top: 0;
+  top: 18px;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
-.comment > img {
+.comment__profile > img {
   align-self: center;
+  border-radius: 50%;
+  border: solid 1px #c1c1c1;
 } 
 
 .comment__name {
   margin-bottom: 20px;
+  line-height: 18px;
 }
 
 .comment__content {
   position: relative;
-  top: 30%;
-  margin-bottom: 10px;
+  top: 40%;
+  margin-bottom: 40px;
   text-align: justify;
 }
 
