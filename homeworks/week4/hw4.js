@@ -1,10 +1,10 @@
 const request = require('request')
 
 const CLIENT_ID = 'cggmzqykplcvt5zqpl5aofaul8ljhp'
-const API_ENDPOINT = 'https://api.twitch.tv/kraken'
+const API_URL = 'https://api.twitch.tv/kraken'
 
 request({
-  url: `${API_ENDPOINT}/games/top`,
+  url: `${API_URL}/games/top`,
   headers: {
     'Client-ID': CLIENT_ID,
     Accept: 'application/vnd.twitchtv.v5+json'
