@@ -1,26 +1,26 @@
 const request = require('request')
 const process = require('process')
 
-const API_ENDPOINT = 'https://lidemy-book-store.herokuapp.com'
+const API_URL = 'https://lidemy-book-store.herokuapp.com'
 
 const action = process.argv[2]
 
 if (action === 'list') {
-  bookList()
+  listBooks()
 } else if (action === 'read') {
-  bookRead(process.argv[3])
+  readBook(process.argv[3])
 } else if (action === 'delete') {
-  bookDelete(process.argv[3])
+  deleteBook(process.argv[3])
 } else if (action === 'create') {
-  bookCreate(process.argv[3])
+  createBook(process.argv[3])
 } else if (action === 'update') {
-  bookUpdate(process.argv[3], process.argv[4])
+  updateBook(process.argv[3], process.argv[4])
 } else {
   console.log('unknown action')
 }
 
-function bookList() {
-  request(`${API_ENDPOINT}/books?_limit=20`, (error, response, body) => {
+function listBooks() {
+  request(`${API_URL}/books?_limit=20`, (error, response, body) => {
     if (error) {
       console.log('error', error)
       return
@@ -41,8 +41,8 @@ function bookList() {
   )
 }
 
-function bookRead(id) {
-  request(`${API_ENDPOINT}/books/${id}`, (error, response, body) => {
+function readBook(id) {
+  request(`${API_URL}/books/${id}`, (error, response, body) => {
     if (error) {
       console.log('error', error)
       return
@@ -60,8 +60,8 @@ function bookRead(id) {
   )
 }
 
-function bookDelete(id) {
-  request.delete(`${API_ENDPOINT}/books/${id}`, (error, response, body) => {
+function deleteBook(id) {
+  request.delete(`${API_URL}/books/${id}`, (error, response, body) => {
     if (error) {
       console.log('error', error)
       return
@@ -80,9 +80,9 @@ function bookDelete(id) {
   )
 }
 
-function bookCreate(name) {
+function createBook(name) {
   request.post({
-    url: `${API_ENDPOINT}/books`,
+    url: `${API_URL}/books`,
     form: {
       name
     }
@@ -105,9 +105,9 @@ function bookCreate(name) {
   )
 }
 
-function bookUpdate(id, name) {
+function updateBook(id, name) {
   request.patch({
-    url: `${API_ENDPOINT}/books/${id}`,
+    url: `${API_URL}/books/${id}`,
     form: {
       name
     }

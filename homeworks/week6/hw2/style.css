@@ -66,12 +66,13 @@ label {
 .submit__button {
   padding: 13px 30px;
   background: #fad312;
+  border: 0px;
   border-radius: 3px;
-  width: 50px;
+  width: 98px;
   text-align: center;
   margin: 60px 0px 20px 0px;
   font-size: 12px;
-  transition: transform 0.1s;
+  transition: transform 0.2s;
   cursor: pointer;
   font-weight: bold;
 }

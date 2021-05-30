@@ -1,8 +1,8 @@
 const request = require('request')
 
-const API_ENDPOINT = 'https://lidemy-book-store.herokuapp.com'
+const API_URL = 'https://lidemy-book-store.herokuapp.com'
 
-request(`${API_ENDPOINT}/books?_limit=10`, (error, response, body) => {
+request(`${API_URL}/books?_limit=10`, (error, response, body) => {
   if (error) {
     console.log('error', error)
     return
