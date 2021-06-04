@@ -1,0 +1,57 @@
+.wrapper {
+  background: #fceea7;
+  max-width: 645px;
+  box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+  padding: 20px 10px 60px;
+  margin: 80px auto 0px;
+  text-align: center;
+}
+
+h1 {
+  color: #009090;
+}
+
+.add {
+  display: inline-block;
+  color: #03454e6c;
+  font-weight: bold;
+  padding: 10px 0px;
+}
+
+.btn__add {
+  margin-left: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.todo__wholelist {
+  text-align: left;
+}
+
+.todo__item {
+  padding: 20px 130px;
+  font-size: 20px;
+  color: #009090;
+  display: flex;
+  align-items: center;
+}
+
+.todo__item:hover {
+  background:#ffb400;
+}
+
+.todo__name {
+  flex: 1;
+}
+
+.todo__check {
+ width: 20px;
+ height: 20px;
+ margin-right: 8px;
+}
+
+.todo__done .todo__name {
+  text-decoration: line-through;
+}
