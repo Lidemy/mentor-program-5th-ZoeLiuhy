@@ -3,25 +3,29 @@ document.querySelector('.faq-block').addEventListener('click', (e) => {
   if (clickQuestion) {
     clickQuestion.classList.toggle('rollup')
   }
-  function closestRecursive(node, className) {
-    if (!node || !node.classList) return null
+})
+
+function closestRecursive(node, className) {
+  if (!node || !node.classList) return null
+  if (node.classList.contains(className)) {
+    return node
+  }
+  return closestRecursive(node.parentNode, className)
+}
+
+/* 其他作法
+function closest(node, className) {
+  while (node && node.classList) {
     if (node.classList.contains(className)) {
       return node
     }
-    return closestRecursive(node.parentNode, className)
+    node = node.parentNode
   }
+}
 
-  /*
-  function closest(node, className) {
-    while (node && node.classList) {
-      if (node.classList.contains(className)) {
-        return node
-      }
-      node = node.parentNode
-    }
-  }
-  const clickQuestion = e.target.closest('.question')
-  if (clickQuestion) {
-    clickQuestion.classList.toggle('rollup')
-  */
-})
+或者
+const clickQuestion = e.target.closest('.question')
+if (clickQuestion) {
+  clickQuestion.classList.toggle('rollup')
+}
+*/
