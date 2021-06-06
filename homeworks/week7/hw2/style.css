@@ -1,3 +1,13 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 至少佔據可視範圍的整個高度*/
+}
+
+main {
+  flex-grow: 1;
+}
+
 .navbar {
   box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
 }
@@ -50,7 +60,7 @@
 }
 
 .wrapper {
-  max-width: 1280px;
+  max-width: 2560px;
   margin: 0 auto;
   padding: 12px;
 }

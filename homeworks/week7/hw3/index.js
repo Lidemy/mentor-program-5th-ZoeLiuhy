@@ -19,11 +19,7 @@ document.querySelector('.todo__wholelist').addEventListener('click', (e) => {
     return
   }
   if (target.classList.contains('todo__check')) {
-    if (target.checked) {
-      target.parentNode.classList.add('todo__done')
-    } else {
-      target.parentNode.classList.remove('todo__done')
-    }
+    target.parentNode.classList.toggle('todo__done')
   }
 })
 

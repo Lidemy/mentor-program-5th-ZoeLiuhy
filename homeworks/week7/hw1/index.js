@@ -21,8 +21,9 @@ document.querySelector('form').addEventListener('submit', (e) => {
       }
     } else if (mobile) {
       returnData[mobile.name] = mobile.value
-      if (!mobile.value | mobile.value.length < 10) {
+      if (!mobile.value) {
         isValid = false
+        isValid = /^09\d{8}$/.test(mobile.value)
       }
     } else if (radios.length) {
       isValid = [...radios].some((radio) => radio.checked)
