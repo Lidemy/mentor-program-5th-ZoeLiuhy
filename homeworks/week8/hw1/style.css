@@ -1,0 +1,261 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;  // 至少佔據可視範圍的整個高度
+}
+
+main {
+  flex-grow: 1;
+}
+
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background: #ffffff;
+  padding: 0px 20px;
+}
+
+.logo {
+  font-family: Questrial;
+  font-size: 36px;
+  color: #489846;
+}
+
+.navbar__list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+}
+
+.navbar__list > li {
+  border-radius: 8px;
+  margin-left: 8px;
+  transition: background 0.1s;
+}
+
+.navbar__list > li.active,
+.navbar__list > li:hover {
+  background: #ff7286;
+}
+
+.navbar__list > li.active > a,
+.navbar__list > li:hover > a {
+  color: white;
+}
+
+.navbar__list > li > a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 12px 20px;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 12px;
+}
+
+.section {
+  text-align: center;
+  background: url(games-bn.png) no-repeat center/cover;
+  height: calc(100vh - 10px);
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.section__result {
+  text-align: center;
+  background: url(bg.png) no-repeat center/cover;
+  height: calc(100vh - 10px);
+  position: relative;
+}
+
+.section__result.firstPrize {
+  background-image: url(flight.jpg);
+}
+
+.section__result.secondPrize {
+  background-image: url(living-room.jpg);
+}
+
+.section__result.thirdPrize {
+  background-image: url(youtube.jpg);
+}
+
+.section__result.nonePrize {
+  background: black;
+  color: white;
+}
+
+.event___block {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 10%);
+  background-color: white;
+  padding: 20px 30px;
+  width: 500px;
+  border-radius: 16px;
+  align-items: center;
+}
+
+.event__title {
+  display: inline-block;
+  font-size: 24px;
+  color: #5ec1b6;
+  margin-bottom: 30px;
+}
+
+.eventresult__title {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, 30%);
+  font-size: 36px;
+  color: white;
+  max-width: 708px;
+  align-items: center;
+  padding: 100px 30px;
+  margin-bottom: 50px;
+}
+
+.event__detail {
+  display: flex;
+  align-items: flex-start;
+  color: #322929;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: solid 1px #cdcdcd;
+}
+
+.event__detail__title {
+  font-weight: bold;
+  font-size: 18px;
+  width: 90px;
+  line-height: 27px;
+  text-align: justify;
+}
+
+.event__detail__content {
+  font-size: 16px;
+  line-height: 26px;
+  text-align: justify;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.submit__btn {
+  background: #e62a45;
+  border-radius: 8px;
+  padding: 18px 100px;
+  max-width: 500px;
+  margin: 0px auto;
+  border: 0px;
+  color: white;
+  cursor: pointer;
+  text-align: center;
+}
+
+.submit__btn:hover {
+  transform: scale(1.1);
+}
+
+.footer__top {
+  padding: 35px;
+  background-color: #e8efee;
+  color: #484848;
+}
+
+.footer__top > .wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__info {
+  margin-right: 16px;
+}
+
+.footer__info > div + div {
+  margin-top: 10px;
+}
+
+.footer__site {
+  font-size: 36px;
+  color: #489846;
+}
+
+.footer__bottom {
+  background: #35564b;
+  text-align: center;
+  padding: 15px;
+  font-size: 16px;
+  color: white;
+}
+
+@media(max-width: 768px) {
+  .navbar .wrapper {
+    flex-direction: column;
+    height: 120px;
+    justify-content: space-between;
+    padding: 0px;
+  }
+
+  .navbar__list {
+    display: flex;
+    width: 100%;
+  }
+
+  .navbar__list > li {
+    flex: 1;
+    margin-left: 0px;
+    border-radius: 0px;
+    text-align: center;
+  }
+
+  .logo {
+    margin-top: 10px;
+  }
+
+  .section {
+    height: 800px;
+    overflow: auto;
+  }
+
+  .event___block {
+    transform: translate(-50%, 5%);
+    display: block;
+    padding: 10px 30px;
+    max-width: 350px;
+  }
+
+  .event__detail {
+    word-break: break-all;
+  }
+
+  .footer__top > .wrapper {
+    flex-direction: column-reverse;
+  }
+
+  .footer__info {
+    margin-right: 0px;
+    margin-top: 10px;
+  }
+
+}
