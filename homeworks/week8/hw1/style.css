@@ -5,7 +5,7 @@
 body {
   display: flex;
   flex-direction: column;
-  min-height: 100vh;  // 至少佔據可視範圍的整個高度
+  min-height: 100vh;
 }
 
 main {
