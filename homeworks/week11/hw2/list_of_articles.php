@@ -6,8 +6,8 @@ require_once("utils.php");
 $username = NULL;
 $user = NULL;
 if (!empty($_SESSION["username"])) {
-	$username = $_SESSION["username"];
-	$user = getUserFromUsername($username);
+  $username = $_SESSION["username"];
+  $user = getUserFromUsername($username);
 } else {
   $user = NULL;
 }
@@ -16,7 +16,7 @@ $sql = "SELECT * FROM zoeliuhy_articles WHERE is_deleted = 0 ORDER BY id DESC";
 $stmt = $conn->prepare($sql);
 $result = $stmt->execute();
 if(!$result) {
-	die("ERROR: " . $conn->error);
+  die("ERROR: " . $conn->error);
 }
 $result = $stmt->get_result();
 ?>
@@ -43,10 +43,10 @@ $result = $stmt->get_result();
   <div class="container-wrapper">
     <div class="container">
       <div class="admin-posts">
-			<?php while ($data = $result->fetch_assoc()) { ?>
+      <?php while ($data = $result->fetch_assoc()) { ?>
         <div class="admin-post">
           <div class="admin-post__title">
-						<?php echo escape($data["title"]) ?>
+            <?php echo escape($data["title"]) ?>
           </div>
           <div class="admin-post__info">
             <div class="admin-post__created-at">
@@ -57,7 +57,7 @@ $result = $stmt->get_result();
             </a>
           </div>
         </div>
-			<?php } ?>
+      <?php } ?>
       </div>
     </div>
   </div>

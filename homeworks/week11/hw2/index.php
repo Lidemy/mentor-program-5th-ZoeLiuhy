@@ -6,15 +6,15 @@ require_once("utils.php");
 $username = NULL;
 $user = NULL;
 if (!empty($_SESSION["username"])) {
-	$username = $_SESSION["username"];
-	$user = getUserFromUsername($username);
+  $username = $_SESSION["username"];
+  $user = getUserFromUsername($username);
 } else {
   $user = NULL;
 }
 
 $page = 1;
 if (!empty($_GET["page"])) {
-	$page = intval($_GET["page"]);
+  $page = intval($_GET["page"]);
 }
 $items_per_page = 5;
 $offset = ($page - 1) * $items_per_page;
@@ -24,7 +24,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param("ii", $offset, $items_per_page);
 $result = $stmt->execute();
 if(!$result) {
-	die("ERROR: " . $conn->error);
+  die("ERROR: " . $conn->error);
 }
 $result = $stmt->get_result();
 ?>
@@ -69,15 +69,15 @@ $result = $stmt->get_result();
     <?php } ?>
     </div>
     <?php 
-            if (!empty($_GET["errorCode"])) {
-              $code = $_GET["errorCode"];
-              $msg = "Error";
-              if ($code === "1") {
-                $msg = "資料有誤";
-              }
-              echo '<h3 class="errorMsg">錯誤： ' . $msg . '</h3>';
-            }
-          ?>
+      if (!empty($_GET["errorCode"])) {
+        $code = $_GET["errorCode"];
+        $msg = "Error";
+        if ($code === "1") {
+          $msg = "資料有誤";
+        }
+        echo '<h3 class="errorMsg">錯誤： ' . $msg . '</h3>';
+      }
+    ?>
   </div>
   <?php
     $sql = "SELECT count(id) AS count FROM zoeliuhy_articles WHERE is_deleted = 0";
@@ -101,7 +101,7 @@ $result = $stmt->get_result();
     <a href="index.php?page=<?php echo escape($page + 1) ?>">下一頁</a>
     <a href="index.php?page=<?php echo escape($total_page) ?>">末頁</a>
   <?php } ?>
-	</div>
+  </div>
   <footer>Copyright © 2020 Who's Blog All Rights Reserved.</footer>
 </body>
 </html>

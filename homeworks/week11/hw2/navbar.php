@@ -19,11 +19,11 @@
         <li><a href="index.php">首頁</a></li>
         <li><a href="login.php">登入</a></li>
       <?php } else if (isAdmin($user)) { ?>
-        <?php if ($isAdminPage) { ?>
-          <li><a href="create_article.php">新增文章</a></li>
-        <?php } else { ?>
-        <li><a href="admin.php">管理後台</a></li>
-        <?php } ?>
+          <?php if ($isAdminPage) { ?>
+            <li><a href="create_article.php">新增文章</a></li>
+          <?php } else { ?>
+            <li><a href="admin.php">管理後台</a></li>
+          <?php } ?>
         <li><a href="index.php">首頁</a></li>
         <li><a href="logout.php">登出</a></li>
       <?php } ?>
