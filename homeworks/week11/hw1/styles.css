@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #80cbc4;
+  margin: 0px;
+}
+
+.warning {
+  color: #b71c1c;
+  background: #ff8a80;
+  text-align: center;
+  padding: 5px;
+}
+
+.block {
+  background: white;
+  margin: 20px auto;
+  width: 100%;
+  max-width: 700px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px #78909c;
+}
+
+.block_title {
+  padding: 20px 0px 0px 0px;
+  margin: 0px;
+}
+
+input {
+  padding: 0.3em;
+}
+
+.block_name_content {
+  margin-bottom: 15px;
+}
+
+.block_name_content2 {
+  margin-top: 30px;
+  display: inline-block;
+}
+
+.block_name_content2 input {
+  margin-right: 10px;
+}
+
+.block_content {
+  margin: 0.83em 0px;
+  width: 100%;
+  padding: 0.5em;
+}
+
+.errorCode {
+  color: #b71c1c;
+}
+
+.block_btn {
+  width: 100px;
+  height: 50px;
+  background: #ff5722;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 5px #78909c;
+  margin: 10px 0px;
+}
+
+.block_btn2 {
+  padding: 10px 35px;
+  border: #78909c;
+  color: black;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 2px 2px 5px #78909c;
+  margin: 10px 15px 10px 0px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.block_btn3 {
+  color: #d81b60;
+  cursor: pointer;
+  font-weight: bold;
+  margin-left: 15px;
+  font-size: 10px;
+}
+
+.line {
+  border-top: #0d47a1 solid 0.1em;
+  margin: 0.83em;
+}
+
+.record {
+  display: flex;
+  margin-top: 15px;
+}
+
+.record_leftside_picture {
+  background: #00b8d4;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px;
+  min-height: 100%;
+  min-width: 60px;
+}
+
+.record_info {
+  display: flex;
+  line-height: 18px;
+  padding: 10px 0px;
+}
+
+.record_info_name {
+  margin: 0px 20px;
+  font-weight: bold;
+}
+
+.record_info_time {
+  color: #757575;
+  font-size: 12px;
+}
+
+.record_content {
+  margin: 10px 20px;
+  word-break: break-word;
+  text-align: justify;
+  font-size: 12px;
+  white-space: pre-line;
+}
+
+.hide {
+  display: none;
+}
+
+.page_info {
+  text-align: center;
+  font-size: 10px;
+}
+
+.paginator {
+  text-align: center;
+  font-size: 10px;
+}
+
+table {
+  font-size: 10px;
+  margin: 0 auto;
+  text-align: center;
+  table-layout: fixed;
+  width: 100%;
+}
