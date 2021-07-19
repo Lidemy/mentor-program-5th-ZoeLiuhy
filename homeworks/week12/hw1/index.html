@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>留言板</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+</head>
+<body class="m-5">
+  <form class="add_comment_form">
+    <div class="card text-center" style="border:0px">
+        <h5 class="card-title">WEEK 12 留言板</h5>
+    </div>
+    <div class="mb-3">
+      <label for="nickname_input" class="form-label">暱稱</label>
+      <input type="text" class="form-control" id="nickname_input" placeholder="請輸入暱稱" name="nickname"/>
+    </div>
+    <div class="mb-3">
+      <label for="content_textarea" class="form-label">留言內容</label>
+      <textarea class="form-control" id="content_textarea" rows="3" placeholder="請輸入留言" name="content"></textarea>
+    </div>
+    <button type="button" class="btn btn-success">提交</button>
+  </form>
+  <div class="comments">
+  </div>
+</body>
+<script>
+  function escape(unsafe) {
+    return unsafe
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#039;");
+  }
+
+  function appendCommentToDOM(container, comment, newCommentId, isPrepend) {
+    const html = `
+      <div class="card  mt-3">
+        <div class="card-header">
+          ${comment.id || newCommentId}
+          ${escape(comment.nickname)}
+        </div>
+        <div class="card-body">
+          <p class="card-text" style="white-space:pre-line">${escape(comment.content)}</p>
+        </div>
+      </div>
+      `
+    if (isPrepend) {
+      container.prepend(html)
+    } else {
+      container.append(html)
+    }
+  }
+
+  const siteKey = "zoe"
+  const loadMoreButtonHTML = `
+    <div class="d-grid gap-2 mt-3 loadmore">
+      <button class="btn btn_loadmore btn-outline-success" type="button">載入更多</button>
+    </div>
+    `
+  const commentsSelector = $(".comments")
+  let lastCommentId = null
+  let hasMoreComment = true
+  // 載入留言
+  getComments()
+
+  // 載入更多留言
+  $(".comments").on("click", "button", () => {
+    getComments()
+  })
+
+  function getComments() {
+    $(".btn_loadmore").hide()
+    if (!hasMoreComment) {
+      return
+    }
+
+    getCommentsAPI(siteKey, lastCommentId, data => {
+    if (!data.status) {
+      alert(data.message)
+      return
+    }
+
+    const comments = data.discussions
+    for (let comment of comments) {
+      appendCommentToDOM(commentsSelector, comment, false)
+    }
+
+    let length = comments.length
+    if (length < 5) {
+      hasMoreComment = false
+      $(".btn_loadmore").hide()
+    } else {
+      lastCommentId = comments[length - 1].id
+      if (lastCommentId === 1) {
+        hasMoreComment = false
+        $(".btn_loadmore").hide()
+        return
+      }
+      commentsSelector.append(loadMoreButtonHTML)
+    }
+    })
+  }
+
+  function getCommentsAPI(site_key, beforeId, cb) {
+    let url = `http://mentor-program.co/mtr04group3/zoeliuhy/week12/hw1/api_list_comments.php?site_key=${siteKey}`
+    if (beforeId) {
+      url += "&before=" + beforeId
+    }
+    $.ajax({
+      url,
+    }).done((data) => {
+      cb(data)
+    })
+  }
+
+  // 新增留言
+  $(".add_comment_form").on("click", "button", (e) => {
+    e.preventDefault()
+    const newCommentData = {
+        site_key: "zoe",
+        nickname: $("input[name=nickname").val(),
+        content: $("textarea[name=content]").val(),
+      }
+    $.ajax({
+      type: "POST",
+      url: "http://mentor-program.co/mtr04group3/zoeliuhy/week12/hw1/api_add_comments.php",
+      data: newCommentData
+    }).done((data) => {
+      if (!data.status) {
+        alert(data.message)
+        return
+      }
+      $("input[name=nickname]").val("")
+      $("textarea[name=content]").val("")
+      const newCommentId = data.new_comment_id
+      appendCommentToDOM(commentsSelector, newCommentData, newCommentId, true)
+    })
+  })
+</script>
+</html>
