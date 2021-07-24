@@ -22,3 +22,70 @@ Gulp 跟 Webpack 的定位完全不同，只是兩者都有可以幫你處理同
 
 ## CSS Selector 權重的計算方式為何？
 
+權重就是優先權，權重高的CSS會優先對元素產生效果。如果是相同的權重，則後面的CSS會覆蓋前面的CSS。
+
+### 權重比大小
+!important > inline style > ID > Class/psuedo-class(偽類)/attribute（屬性選擇器） > Element > *
+
+- `*` 的權重是 0-0-0-0
+- 每一個 Element 的權重是 0-0-0-1，例如：`<div>`、`<p>`、`<h1>`
+- 每一個 Class、psuedo-class、attribute 的權重是 0-0-1-0
+	- psuedo-class是指 `:nth-child()`、`:hover` 這種元素
+	- attribute是指 `[type:checkbox]` 這種元素
+- 每一個 ID 的權重是 0-1-0-0
+- 每一個 inline style 的權重是 1-0-0-0，指寫在 html 內的 style，例如：`<div style="..."></div>`
+- !important 的權重是 1-0-0-0-0，權重視最高的，只有 !important 自己可以超過 !important。
+
+### 權重算法
+
+以下舉例來說：
+
+```
+<!DOCTYPE HTML> 
+<html>
+ <head>
+   <meta charset="utf8" />
+   <title>css selector test</title>
+   <style>
+    body div { 
+      color: blue;
+    }
+
+    div.class {
+      color: red;
+    }
+
+    #id {
+      color: green
+    }
+   </style>
+ </head>
+ <body>
+    <div class="class" id="id" style="color:orange">
+      text
+    </div>
+ </body>
+</html>
+```
+
+`body div` 
+=> 共兩個 element，權重合計為 0-0-0-2
+
+`div.class`
+=> 一個 element 加上一個 class，權重合計為 0-0-1-1
+
+`#id`
+=> 一個 id，權重合計 0-1-0-0
+
+`style="color:orange"`
+=> inline style，權重 1-0-0-0
+
+權重從最左邊依序往右比，數字越大就越優先，數字相等就會往右一個再做比較。
+
+所以，最後 text 的字會顯示為**橘色**。
+
+
+
+
+
+
