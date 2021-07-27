@@ -1,0 +1,210 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vh;
+  position: relative;
+}
+
+.navbar {
+  box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+}
+
+.navbar .wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+  background: #ffffff;
+  padding: 0px 20px;
+}
+
+.logo {
+  font-size: 36px;
+  color: black;
+}
+
+.navbar__list {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  font-size: 18px;
+  align-items: center;
+}
+
+.navbar__list li {
+  margin-left: 8px;
+  transition: background 0.1s;
+}
+
+.navbar__list li:hover {
+  background: grey;
+}
+
+.navbar__list li:hover > a {
+  color: white;
+}
+
+.navbar__list > li > a {
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 12px 20px;
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px;
+  position: relative;
+}
+
+.section {
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+  min-width: 100vh;
+  background: linear-gradient(221deg, rgba(0, 0, 0, 0.8)16%, rgba(32, 99, 155, 0.8)84%);
+  background-size: cover;
+}
+
+.title__block {
+  font-size: 22px;
+  color: white;
+  margin-bottom: 30px;
+}
+
+.stream__blocks {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.stream__block {
+  color: #322929;
+  margin: 10px;
+  width: 390px;
+  height: 290px;
+  background: white;
+  cursor: pointer; 
+}
+
+.stream__block:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2);
+}
+
+.stream__block__empty {
+  margin: 10px;
+  width: 390px;
+  height: 290px;
+}
+
+.stream__preview {
+  height: 70%;
+}
+
+.stream__preview img{
+  width: 100%;
+}
+
+.stream__resource {
+  color: white;
+  background: #333333;
+  width: 100%;
+  height: 30%;
+  position: relative;
+  padding: 10px;
+}
+
+.stream__gamerPic {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  display: inline-block;
+  position: absolute;
+  left: 5%;
+  top: 20%;
+  overflow: hidden;
+  min-width: 50px;
+}
+
+.stream__gamerPic img {
+  width: 100%;
+  height: 100%;
+}
+
+.stream__videoResource {
+  position: absolute;
+  left: 20%;
+  text-align: left;
+  overflow: hidden;
+  padding: 5px 3px;
+  margin: 5px 0px;
+  line-height: 23px;
+}
+
+.stream__videoName {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 300px;
+}
+
+@media(max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;  
+  }
+  
+  main {
+    flex-grow: 1;
+  }
+
+  .navbar .wrapper {
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 0px;
+  }
+
+  .navbar__list {
+    display: flex;
+    width: 100%;
+  }
+
+  .navbar__list > li {
+    flex: 1;
+    margin-left: 0px;
+    border-radius: 0px;
+    text-align: center;
+    padding: 10px;
+  }
+
+  .navbar__list li:hover {
+    background: white;
+  }
+  
+  .navbar__list li:hover > a {
+    color: black;
+  }
+  
+  .logo {
+    margin-top: 10px;
+  }
+
+  .stream__blocks {
+    display: inline-block;
+    align-items: center;
+  }
+
+  .stream__block {
+    margin: 20px;
+  }
+
+}
