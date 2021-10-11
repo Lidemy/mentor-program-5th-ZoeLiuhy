@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.1",
-    "request": "^2.88.2"
+    "request": "^2.88.2",
+    "styled-components": "^5.3.1"
   }
 }
